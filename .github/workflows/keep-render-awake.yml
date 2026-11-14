@@ -11,13 +11,8 @@ jobs:
     steps:
       - name: Ping Render health endpoint
         env:
-          RENDER_APP_URL: ${{ secrets.RENDER_APP_URL }}
+          RENDER_APP_URL: https://multi-agent-system-using-langgraph-mcp-cswl.onrender.com
         run: |
-          if [ -z "$RENDER_APP_URL" ]; then
-            echo "Set the RENDER_APP_URL repository secret first." >&2
-            exit 1
-          fi
-
           curl --fail --silent --show-error \
             --retry 5 \
             --retry-delay 15 \
